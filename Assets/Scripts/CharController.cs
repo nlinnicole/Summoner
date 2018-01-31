@@ -14,6 +14,8 @@ public class CharController : MonoBehaviour
     private Vector3 jump;
     private bool canJump = false;
 
+    public GameObject[] portalExit;
+    public int index = 0;
 
     private void Start()
     {
@@ -34,6 +36,10 @@ public class CharController : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            canJump = true;
+        }
         if (Input.GetButtonDown("Jump") && isGrounded && canJump)
         { 
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
@@ -42,8 +48,6 @@ public class CharController : MonoBehaviour
         else
             Move();
     }
-
-  
 
     void Move()
     {
@@ -66,5 +70,13 @@ public class CharController : MonoBehaviour
             transform.position += forwardMove;
         }
         
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Portal")
+        {
+            transform.position = portalExit[index].transform.position;
+        }
     }
 }
