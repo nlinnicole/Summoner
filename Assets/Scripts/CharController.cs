@@ -12,6 +12,7 @@ public class CharController : MonoBehaviour
 
     private bool isGrounded;
     private Vector3 jump;
+    private bool canJump = false;
 
 
     private void Start()
@@ -33,7 +34,7 @@ public class CharController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded && canJump)
         { 
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
             isGrounded = false;
@@ -57,7 +58,6 @@ public class CharController : MonoBehaviour
 
         if (transform.position.y > originalHeight)
         {
-            Debug.Log("jumping");
             transform.position += (rightMove / 2.0f);
             transform.position += (forwardMove / 2.0f);
         } else
