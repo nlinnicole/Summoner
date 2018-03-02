@@ -53,11 +53,10 @@ public class CharController : MonoBehaviour
     {
         float originalHeight = transform.position.y;
 
-        Vector3 direction = new Vector3(Input.GetAxis("HorizontalKey"), 0, Input.GetAxis("VerticalKey"));
         Vector3 rightMove = right * speed * Time.deltaTime * Input.GetAxis("HorizontalKey");
         Vector3 forwardMove = forward * speed * Time.deltaTime * Input.GetAxis("VerticalKey");
 
-        Vector3 heading = Vector3.Normalize(rightMove + forwardMove);
+        //Vector3 heading = Vector3.Normalize(rightMove + forwardMove);
         //transform.forward = heading;
 
         if (transform.position.y > originalHeight)
