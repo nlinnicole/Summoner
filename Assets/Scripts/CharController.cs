@@ -21,6 +21,7 @@ public class CharController : MonoBehaviour
     {
         forward = Camera.main.transform.forward;
         forward.y = 0;
+        forward.x = 90;
         forward = Vector3.Normalize(forward);
 
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class SummonController : MonoBehaviour {
     public GameObject SpawnPoints;
+
     public GameObject bridge;
+    public GameObject bigBridge;
     public GameObject portalEnter;
     public GameObject portalExit;
-    public GameObject ramp;
+    public GameObject stairs;
 
     public static int index = 0;
 
@@ -16,6 +18,7 @@ public class SummonController : MonoBehaviour {
 
     void Start()
     {
+        //Add spawn point positions to spawn list
         foreach (Transform child in SpawnPoints.transform)
         {
             spawn.Add(child.gameObject);
@@ -32,13 +35,20 @@ public class SummonController : MonoBehaviour {
             bridge.SetActive(true);
             ++index;
         }
+        else if (Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.Log("big bridge");
+            bigBridge.transform.position = spawn[index].transform.position;
+            bigBridge.SetActive(true);
+            ++index;
+        }
         else if (Input.GetKeyDown(KeyCode.K))
         {
             if(spawn[index].tag == "isRaised")
             {
                 Debug.Log("ramp");
-                ramp.transform.position = spawn[index].transform.position;
-                ramp.SetActive(true);
+                stairs.transform.position = spawn[index].transform.position;
+                stairs.SetActive(true);
                 ++index;
             } else
             {
@@ -47,6 +57,7 @@ public class SummonController : MonoBehaviour {
         }
         else if (Input.GetKeyDown(KeyCode.L))
         {
+            Debug.Log("portal");
             Vector3 portalEnterLoc = spawn[index].transform.position;
             portalEnterLoc.x -= portalOffset;
 
