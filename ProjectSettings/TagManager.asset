@@ -6,7 +6,9 @@ TagManager:
   tags:
   - Portal
   - SummonerController
-  - IsRaised
+  - BridgeOnly
+  - BigB_Portal
+  - Stairs_Portal
   layers:
   - Default
   - TransparentFX
