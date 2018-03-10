@@ -9,6 +9,7 @@ TagManager:
   - BridgeOnly
   - BigB_Portal
   - Stairs_Portal
+  - Artifact
   layers:
   - Default
   - TransparentFX
