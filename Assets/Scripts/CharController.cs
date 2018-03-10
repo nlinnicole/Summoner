@@ -12,7 +12,6 @@ public class CharController : MonoBehaviour
 
     private bool isGrounded;
     private Vector3 jump;
-    private bool canJump = false;
 
     public GameObject[] portalExit;
     public int index = 0;
@@ -37,11 +36,7 @@ public class CharController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            canJump = true;
-        }
-        if (Input.GetButtonDown("Jump") && isGrounded && canJump)
+        if (Input.GetButtonDown("Jump") && isGrounded)
         { 
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
             isGrounded = false;
@@ -66,7 +61,6 @@ public class CharController : MonoBehaviour
             transform.position += rightMove;
             transform.position += forwardMove;
         }
-        
     }
 
     private void OnCollisionEnter(Collision collision)
