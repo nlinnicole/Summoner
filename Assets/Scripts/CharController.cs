@@ -8,13 +8,16 @@ public class CharController : MonoBehaviour
     public float jumpForce = 2.0f;
 
     private Vector3 forward, right;
-    private Rigidbody rb;
 
     private bool isGrounded;
+    private bool isMoving = false;
     private Vector3 jump;
 
     public GameObject[] portalExit;
     public int index = 0;
+
+    private Animator anim;
+    private Rigidbody rb;
 
     private void Start()
     {
@@ -27,6 +30,7 @@ public class CharController : MonoBehaviour
         jump = new Vector3(0.0f, 3.0f, 0.0f);
 
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
     }
 
     private void OnCollisionStay()
@@ -42,7 +46,9 @@ public class CharController : MonoBehaviour
             isGrounded = false;
         }
         else
+        {
             Move();
+        }
     }
 
     void Move()
@@ -60,6 +66,16 @@ public class CharController : MonoBehaviour
         {
             transform.position += rightMove;
             transform.position += forwardMove;
+        }
+
+        //Check if walking
+        if (rightMove == Vector3.zero && forwardMove == Vector3.zero)
+        {
+            anim.SetBool("isWalking", false);
+        }
+        else
+        {
+            anim.SetBool("isWalking", true);
         }
     }
 
