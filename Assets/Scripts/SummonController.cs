@@ -22,6 +22,7 @@ public class SummonController : MonoBehaviour {
         {
             spawn.Add(child.gameObject);
         }
+      
     }
 
     // Update is called once per frame
