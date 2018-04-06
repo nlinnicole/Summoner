@@ -10,7 +10,6 @@ public class CharController : MonoBehaviour
     private Vector3 forward, right;
 
     private bool isGrounded;
-    private bool isMoving = false;
     private Vector3 jump;
 
     public GameObject[] portalExit;
@@ -70,7 +69,14 @@ public class CharController : MonoBehaviour
             transform.position += forwardMove;
         }
 
-        //Check if walking
+        //Turn character
+        float moveHorizontal = Input.GetAxisRaw("Horizontal");
+        float moveVertical = Input.GetAxisRaw("Vertical");
+
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        //transform.rotation = Quaternion.LookRotation(movement);
+
+        //Check if walking to play walking animation
         if (rightMove == Vector3.zero && forwardMove == Vector3.zero)
         {
             anim.SetBool("isWalking", false);

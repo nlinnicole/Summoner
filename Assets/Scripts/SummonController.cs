@@ -27,22 +27,29 @@ public class SummonController : MonoBehaviour {
     void Update()
     {
         position = transform.position;
-        check();
         summon();
     }
 
     void summon()
     {
+        if (Input.anyKey)
+        {
+            check();
+        }
         if (Input.GetKeyDown(KeyCode.J))
         {
             if (closestSpawn.tag == "BridgeOnly")
             {
                 GameObject clone;
                 Debug.Log("bridge only");
-                Vector3 bridgeLoc = spawn[index].transform.position;
+                Vector3 bridgeLoc = closestSpawn.transform.position;
                 clone = Instantiate(bridge, bridgeLoc, Quaternion.Euler(-90, 0, 0));
                 clone.SetActive(true);
                 ++index;
+            } else
+            {
+                //Invalid summon
+                Debug.Log("Too far away");
             }
 
         }
@@ -52,11 +59,16 @@ public class SummonController : MonoBehaviour {
             {
                 GameObject clone;
                 Debug.Log("big bridge");
-                Vector3 bigBridgeLoc = spawn[index].transform.position;
+                Vector3 bigBridgeLoc = closestSpawn.transform.position;
                 bigBridgeLoc.y += 4;
-                clone = Instantiate(bigBridge, bigBridgeLoc, Quaternion.Euler(-90, 90, 0));
+                clone = Instantiate(bigBridge, bigBridgeLoc, Quaternion.Euler(-90, 180, 0));
                 clone.SetActive(true);
                 ++index;
+            }
+            else
+            {
+                //Invalid summon
+                Debug.Log("Too far away");
             }
         }
         else if (Input.GetKeyDown(KeyCode.K))
@@ -65,10 +77,15 @@ public class SummonController : MonoBehaviour {
             {
                 GameObject clone;
                 Debug.Log("stairs");
-                Vector3 stairsLoc = spawn[index].transform.position;
+                Vector3 stairsLoc = closestSpawn.transform.position;
                 clone = Instantiate(stairs, stairsLoc, Quaternion.Euler(-90, 180, 0));
                 clone.SetActive(true);
                 ++index;
+            }
+            else
+            {
+                //Invalid summon
+                Debug.Log("Too far away");
             }
         }
         else if (Input.GetKeyDown(KeyCode.L))
@@ -80,14 +97,14 @@ public class SummonController : MonoBehaviour {
                 Debug.Log("raised portal");
 
                 //portal enter
-                Vector3 portalEnterLoc = spawn[index].transform.position;
+                Vector3 portalEnterLoc = closestSpawn.transform.position;
                 portalEnterLoc.x -= 8f;
                 portalEnterLoc.y += 1.0f;
                 clone1 = Instantiate(portalEnter, portalEnterLoc, Quaternion.Euler(-90, 90, 0));
                 clone1.SetActive(true);
 
                 //portal exit
-                Vector3 portalExitLoc = spawn[index].transform.position;
+                Vector3 portalExitLoc = closestSpawn.transform.position;
                 portalExitLoc.x += 8f;
                 portalExitLoc.y += 7f;
                 clone2 = Instantiate(portalExit, portalExitLoc, Quaternion.Euler(-90, 90, 0));
@@ -99,18 +116,25 @@ public class SummonController : MonoBehaviour {
 
                 ++index;
             }
+            else
+            {
+                //Invalid summon
+                Debug.Log("Too far away");
+            }
 
         }
     }
 
     void check()
     {
+        float range = 30.0f;
         float closestDistance = float.MaxValue;
         foreach (GameObject obj in spawn)
         {
             float distance = Vector3.Distance(obj.transform.position, position);
-            if (distance < closestDistance) {
+            if (distance < closestDistance && distance <= range) {
                 closestDistance = distance;
+                Debug.Log(closestDistance);
                 closestSpawn = obj;
             }
         }
