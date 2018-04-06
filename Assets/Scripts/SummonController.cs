@@ -14,37 +14,41 @@ public class SummonController : MonoBehaviour {
     public static int index = 0;
 
     private List<GameObject> spawn = new List<GameObject>();
+    private GameObject closestSpawn;
+    private Vector3 position;
 
     void Start()
     {
-        //Add spawn point positions to spawn list
         foreach (Transform child in SpawnPoints.transform)
-        {
             spawn.Add(child.gameObject);
-        }
-      
     }
 
     // Update is called once per frame
     void Update()
     {
+        position = transform.position;
+        check();
+        summon();
+    }
+
+    void summon()
+    {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            if(spawn[index].tag == "BridgeOnly")
+            if (closestSpawn.tag == "BridgeOnly")
             {
                 GameObject clone;
                 Debug.Log("bridge only");
                 Vector3 bridgeLoc = spawn[index].transform.position;
-                bridgeLoc.y += 6.6f; //add position offset
                 clone = Instantiate(bridge, bridgeLoc, Quaternion.Euler(-90, 0, 0));
                 clone.SetActive(true);
                 ++index;
             }
-            
+
         }
         else if (Input.GetKeyDown(KeyCode.P))
         {
-            if (spawn[index].tag == "BigB_Portal")
+            if (closestSpawn.tag == "BigB_Portal")
             {
                 GameObject clone;
                 Debug.Log("big bridge");
@@ -57,7 +61,7 @@ public class SummonController : MonoBehaviour {
         }
         else if (Input.GetKeyDown(KeyCode.K))
         {
-            if (spawn[index].tag == "Stairs_Portal")
+            if (closestSpawn.tag == "Stairs_Portal")
             {
                 GameObject clone;
                 Debug.Log("stairs");
@@ -70,7 +74,7 @@ public class SummonController : MonoBehaviour {
         else if (Input.GetKeyDown(KeyCode.L))
         {
             // Stairs and Raised Portal
-            if (spawn[index].tag == "Stairs_Portal") 
+            if (closestSpawn.tag == "Stairs_Portal")
             {
                 GameObject clone1, clone2;
                 Debug.Log("raised portal");
@@ -97,5 +101,19 @@ public class SummonController : MonoBehaviour {
             }
 
         }
+    }
+
+    void check()
+    {
+        float closestDistance = float.MaxValue;
+        foreach (GameObject obj in spawn)
+        {
+            float distance = Vector3.Distance(obj.transform.position, position);
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestSpawn = obj;
+            }
+        }
+        //loop through all spawn points to find closest spawn point
     }
 }

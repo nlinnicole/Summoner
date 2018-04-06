@@ -89,6 +89,5 @@ public class CharController : MonoBehaviour
         //}
 
         index = spawnCol.IndexOf(collision.gameObject);
-        Debug.Log(index);
     }
 }

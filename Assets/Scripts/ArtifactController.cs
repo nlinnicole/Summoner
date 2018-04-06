@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ArtifactController : MonoBehaviour {
 
-    public GameObject cam;
     public GameObject vase;
 
     // Use this for initialization
@@ -22,7 +21,6 @@ public class ArtifactController : MonoBehaviour {
         if (collision.gameObject.name == "Player")
         {
             Debug.Log("Found artifact");
-            vase.transform.position = cam.transform.position;
         }
     }
 }
