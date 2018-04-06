@@ -10,6 +10,7 @@ TagManager:
   - BigB_Portal
   - Stairs_Portal
   - Artifact
+  - Stairs_PortalL
   layers:
   - Default
   - TransparentFX
