@@ -308,6 +308,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\CustomClouds.shader" />
+    <None Include="Assets\Gem\Shaders\Gem.shader" />
     <None Include="Assets\Materials\CustomClouds.shader" />
     <None Include="Assets\Wispy Sky\ReadMe.txt" />
   </ItemGroup>
