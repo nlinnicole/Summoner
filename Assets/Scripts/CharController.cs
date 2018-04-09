@@ -13,8 +13,6 @@ public class CharController : MonoBehaviour
     private Vector3 jump;
 
     public GameObject[] portalExit;
-    public GameObject SpawnPointsCol;
-    private List<GameObject> spawnCol = new List<GameObject>();
     public int index = 0;
 
     private Animator anim;
@@ -85,15 +83,5 @@ public class CharController : MonoBehaviour
         {
             anim.SetBool("isWalking", true);
         }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        //if(collision.gameObject.tag == "Portal")
-        //{
-        //    transform.position = portalExit[index].transform.position;
-        //}
-
-        index = spawnCol.IndexOf(collision.gameObject);
     }
 }
