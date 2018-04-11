@@ -68,11 +68,20 @@ public class CharController : MonoBehaviour
         }
 
         //Turn character
-        float moveHorizontal = Input.GetAxisRaw("Horizontal");
-        float moveVertical = Input.GetAxisRaw("Vertical");
-
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-        //transform.rotation = Quaternion.LookRotation(movement);
+        if (Input.GetKeyDown("w") || Input.GetKeyDown("up"))
+        {
+            transform.rotation = Quaternion.Euler(0, 90, 0);
+        } else if (Input.GetKeyDown("a") || Input.GetKeyDown("left"))
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0 );
+        }
+        else if (Input.GetKeyDown("s") || Input.GetKeyDown("down"))
+        {
+            transform.rotation = Quaternion.Euler(0, 270, 0);
+        } else if (Input.GetKeyDown("d") || Input.GetKeyDown("right"))
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
 
         //Check if walking to play walking animation
         if (rightMove == Vector3.zero && forwardMove == Vector3.zero)
@@ -82,6 +91,14 @@ public class CharController : MonoBehaviour
         else
         {
             anim.SetBool("isWalking", true);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Artifact")
+        {
+            Debug.Log("Found artifact");
         }
     }
 }
