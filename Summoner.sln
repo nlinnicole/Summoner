@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
+# Visual Studio 2015
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Summoner", "Summoner.csproj", "{24CC8E1D-CACA-24E9-0F61-53BB0BFA3075}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Summoner.Editor", "Summoner.Editor.csproj", "{AC2EB4F7-18CE-C279-1FE2-B98F52602F45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,10 @@ Global
 		{24CC8E1D-CACA-24E9-0F61-53BB0BFA3075}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24CC8E1D-CACA-24E9-0F61-53BB0BFA3075}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24CC8E1D-CACA-24E9-0F61-53BB0BFA3075}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC2EB4F7-18CE-C279-1FE2-B98F52602F45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC2EB4F7-18CE-C279-1FE2-B98F52602F45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC2EB4F7-18CE-C279-1FE2-B98F52602F45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC2EB4F7-18CE-C279-1FE2-B98F52602F45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
