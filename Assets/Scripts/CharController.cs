@@ -68,17 +68,17 @@ public class CharController : MonoBehaviour
         }
 
         //Turn character
-        if (Input.GetKeyDown("w") || Input.GetKeyDown("up"))
+        if (Input.GetKey("w") || Input.GetKey("up"))
         {
             transform.rotation = Quaternion.Euler(0, 90, 0);
-        } else if (Input.GetKeyDown("a") || Input.GetKeyDown("left"))
+        } else if (Input.GetKey("a") || Input.GetKey("left"))
         {
             transform.rotation = Quaternion.Euler(0, 0, 0 );
         }
-        else if (Input.GetKeyDown("s") || Input.GetKeyDown("down"))
+        else if (Input.GetKey("s") || Input.GetKey("down"))
         {
             transform.rotation = Quaternion.Euler(0, 270, 0);
-        } else if (Input.GetKeyDown("d") || Input.GetKeyDown("right"))
+        } else if (Input.GetKey("d") || Input.GetKey("right"))
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
@@ -99,6 +99,10 @@ public class CharController : MonoBehaviour
         if (collision.gameObject.tag == "Artifact")
         {
             Debug.Log("Found artifact");
+        }
+        if(collision.gameObject.tag == "Ground")
+        {
+            transform.position = new Vector3(0, 0, 0);
         }
     }
 }
