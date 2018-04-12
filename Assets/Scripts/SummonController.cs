@@ -80,7 +80,7 @@ public class SummonController : MonoBehaviour {
     }
 
     void check(){
-        float range = 30.0f;
+        float range = 40.0f;
         float closestDistance = float.MaxValue;
         foreach (GameObject obj in spawn)
         {
