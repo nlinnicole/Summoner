@@ -60,11 +60,15 @@ public class SummonController : MonoBehaviour {
             {
                 Quaternion rotation = Quaternion.Euler(-90, 270, 0);
                 summonStairs(rotation);
+            } else if (closestSpawn.tag == "Stairs_PortalR")
+            {
+                Quaternion rotation = Quaternion.Euler(-90, 90, 0);
+                summonStairs(rotation);
             }
         }
         else if (Input.GetKeyDown(KeyCode.L))
         {
-            bool isRotated = false;
+            int isRotated = 0;
             // Stairs and Raised Portal
             if (closestSpawn.tag == "Stairs_Portal")
             {
@@ -72,15 +76,20 @@ public class SummonController : MonoBehaviour {
                 summonPortal(rotation, isRotated);
             } else if (closestSpawn.tag == "Stairs_PortalL")
             {
-                isRotated = true;
+                isRotated = 1;
                 Quaternion rotation = Quaternion.Euler(-90, 0, 0);
+                summonPortal(rotation, isRotated);
+            } else if (closestSpawn.tag == "Stairs_PortalR")
+            {
+                isRotated = 2;
+                Quaternion rotation = Quaternion.Euler(-90, 180, 0);
                 summonPortal(rotation, isRotated);
             }
         }
     }
 
     void check(){
-        float range = 40.0f;
+        float range = 30.0f;
         float closestDistance = float.MaxValue;
         foreach (GameObject obj in spawn)
         {
@@ -122,7 +131,7 @@ public class SummonController : MonoBehaviour {
         clone.SetActive(true);
     }
 
-    void summonPortal(Quaternion rotation, bool isRotated)
+    void summonPortal(Quaternion rotation, int isRotated)
     {
         GameObject clone1, clone2;
         Debug.Log("raised portal");
@@ -130,13 +139,20 @@ public class SummonController : MonoBehaviour {
         //portal enter
         Vector3 portalEnterLoc = closestSpawn.transform.position;
         Vector3 portalExitLoc = closestSpawn.transform.position;
-        if (isRotated)
+        if (isRotated == 1)
         {
             portalEnterLoc.z += 11.0f;
             portalEnterLoc.y += 2.5f;
             portalExitLoc.z -= 12.0f;
             portalExitLoc.y += 11.0f;
-        } else
+        } else if (isRotated == 2)
+        {
+            portalEnterLoc.z -= 11.0f;
+            portalEnterLoc.y += 2.5f;
+            portalExitLoc.z += 12.0f;
+            portalExitLoc.y += 11.0f;
+        }
+        else
         {
             portalEnterLoc.x -= 11.0f;
             portalEnterLoc.y += 2.0f;

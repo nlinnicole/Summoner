@@ -12,6 +12,7 @@ TagManager:
   - Artifact
   - Stairs_PortalL
   - Ground
+  - Stairs_PortalR
   layers:
   - Default
   - TransparentFX
