@@ -298,25 +298,8 @@
     <Reference Include="UnityEditor.iOS.Extensions.Common">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
-    <Reference Include="AmplifyColor">
-      <HintPath>Assets\AmplifyColor\Plugins\AmplifyColor.dll</HintPath>
-    </Reference>
-    <Reference Include="AmplifyColorEditor">
-      <HintPath>Assets\AmplifyColor\Plugins\Editor\AmplifyColorEditor.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AmplifyColor\Plugins\AmplifyColorBase.cs" />
-    <Compile Include="Assets\AmplifyColor\Plugins\AmplifyColorEffect.cs" />
-    <Compile Include="Assets\AmplifyColor\Plugins\AmplifyColorTriggerProxy.cs" />
-    <Compile Include="Assets\AmplifyColor\Plugins\AmplifyColorTriggerProxy2D.cs" />
-    <Compile Include="Assets\AmplifyColor\Plugins\AmplifyColorTriggerProxyBase.cs" />
-    <Compile Include="Assets\AmplifyColor\Plugins\AmplifyColorVolume.cs" />
-    <Compile Include="Assets\AmplifyColor\Plugins\AmplifyColorVolume2D.cs" />
-    <Compile Include="Assets\AmplifyColor\Plugins\AmplifyColorVolumeBase.cs" />
-    <Compile Include="Assets\AmplifyColor\Plugins\Runtime\VersionInfo.cs" />
-    <Compile Include="Assets\AmplifyColor\Plugins\Runtime\VolumeEffects.cs" />
-    <Compile Include="Assets\AmplifyColor\Plugins\Runtime\VolumeEffectsFlags.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
@@ -365,23 +348,12 @@
     <Compile Include="Assets\Scripts\ArtifactController.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CharController.cs" />
-    <Compile Include="Assets\Scripts\LoadScene.cs" />
     <Compile Include="Assets\Scripts\PanelController.cs" />
+    <Compile Include="Assets\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Spawn.cs" />
     <Compile Include="Assets\Scripts\SummonController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\AmplifyColor\Readme.txt" />
-    <None Include="Assets\AmplifyColor\Resources\Base.shader" />
-    <None Include="Assets\AmplifyColor\Resources\Blend.shader" />
-    <None Include="Assets\AmplifyColor\Resources\BlendCache.shader" />
-    <None Include="Assets\AmplifyColor\Resources\Common.cginc" />
-    <None Include="Assets\AmplifyColor\Resources\DepthMask.shader" />
-    <None Include="Assets\AmplifyColor\Resources\DepthMaskBlend.shader" />
-    <None Include="Assets\AmplifyColor\Resources\Mask.shader" />
-    <None Include="Assets\AmplifyColor\Resources\MaskBlend.shader" />
-    <None Include="Assets\AmplifyColor\Resources\ProcessOnly.shader" />
-    <None Include="Assets\AmplifyColor\Samples\Check out the full LUT Package.txt" />
     <None Include="Assets\Materials\Gem\Shaders\Gem.shader" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />

@@ -37,7 +37,7 @@ public class CharController : MonoBehaviour
     private void Update()
     {
         if (Input.GetButtonDown("Jump") && isGrounded)
-        { 
+        {
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
@@ -58,7 +58,8 @@ public class CharController : MonoBehaviour
         {
             transform.position += (rightMove / 2.0f);
             transform.position += (forwardMove / 2.0f);
-        } else
+        }
+        else
         {
             transform.position += rightMove;
             transform.position += forwardMove;
@@ -68,14 +69,16 @@ public class CharController : MonoBehaviour
         if (Input.GetKey("w") || Input.GetKey("up"))
         {
             transform.rotation = Quaternion.Euler(0, 90, 0);
-        } else if (Input.GetKey("a") || Input.GetKey("left"))
+        }
+        else if (Input.GetKey("a") || Input.GetKey("left"))
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0 );
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else if (Input.GetKey("s") || Input.GetKey("down"))
         {
             transform.rotation = Quaternion.Euler(0, 270, 0);
-        } else if (Input.GetKey("d") || Input.GetKey("right"))
+        }
+        else if (Input.GetKey("d") || Input.GetKey("right"))
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
@@ -93,7 +96,7 @@ public class CharController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground")
         {
             transform.position = new Vector3(0, 0, 0);
         }

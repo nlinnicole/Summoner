@@ -10,6 +10,8 @@ public class ArtifactController : MonoBehaviour
 
     public GameObject panel;
 
+    public static int artifactCounter = 0;
+
     // Use this for initialization
     void Start()
     {
@@ -27,6 +29,9 @@ public class ArtifactController : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("Found artifact");
+            artifactCounter++;
+            Debug.Log(artifactCounter);
+
             playerAnim.SetBool("isWalking", false);
             playerAnim.SetBool("isCollecting", true);
             artifactAnim.SetBool("isTriggered", true);

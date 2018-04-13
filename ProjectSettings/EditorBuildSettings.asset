@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/summoner_scene.unity
     guid: ff926f4fc23572747a24ea0ee63a23f5
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: d1ec16def56a9874fafa2f9d48c8830c
