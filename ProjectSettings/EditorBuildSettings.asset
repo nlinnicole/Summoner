@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: 9e37197ccf1556b44ad84e53636bac5c
+  - enabled: 1
+    path: Assets/Scenes/summoner_scene.unity
+    guid: ff926f4fc23572747a24ea0ee63a23f5

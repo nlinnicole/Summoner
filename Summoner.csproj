@@ -364,6 +364,7 @@
     <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CharController.cs" />
+    <Compile Include="Assets\Scripts\LoadScene.cs" />
     <Compile Include="Assets\Scripts\Spawn.cs" />
     <Compile Include="Assets\Scripts\SummonController.cs" />
   </ItemGroup>
@@ -379,7 +380,6 @@
     <None Include="Assets\AmplifyColor\Resources\MaskBlend.shader" />
     <None Include="Assets\AmplifyColor\Resources\ProcessOnly.shader" />
     <None Include="Assets\AmplifyColor\Samples\Check out the full LUT Package.txt" />
-    <None Include="Assets\Fonts\Jupiter\LICENSE.txt" />
     <None Include="Assets\Gem\Shaders\Gem.shader" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />
@@ -423,7 +423,6 @@
     <None Include="Assets\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
     <None Include="Assets\Shaders\CustomClouds.shader" />
-    <None Include="Assets\Textures and Sprites\SF UI\Background\LICENSE.txt" />
     <None Include="Assets\Wispy Sky\ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
