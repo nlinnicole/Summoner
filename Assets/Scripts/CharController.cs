@@ -12,9 +12,6 @@ public class CharController : MonoBehaviour
     private bool isGrounded;
     private Vector3 jump;
 
-    public GameObject[] portalExit;
-    public int index = 0;
-
     private Animator anim;
     private Rigidbody rb;
 
@@ -96,10 +93,6 @@ public class CharController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Artifact")
-        {
-            Debug.Log("Found artifact");
-        }
         if(collision.gameObject.tag == "Ground")
         {
             transform.position = new Vector3(0, 0, 0);
