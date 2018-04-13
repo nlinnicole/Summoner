@@ -8,6 +8,8 @@ public class ArtifactController : MonoBehaviour
     public Animator playerAnim;
     public Animator bottleAnim;
 
+    public GameObject panel;
+
     // Use this for initialization
     void Start()
     {
@@ -29,6 +31,18 @@ public class ArtifactController : MonoBehaviour
             playerAnim.SetBool("isCollecting", true);
             bottleAnim.SetBool("isTriggered", true);
             GameObject.FindWithTag("Player").GetComponent<CharController>().enabled = false;
+
+            StartCoroutine(wait());
+
+            GameObject.FindWithTag("Player").GetComponent<CharController>().enabled = true;
         }
+    }
+
+    IEnumerator wait()
+    {
+        yield return new WaitForSeconds(2);
+        panel.SetActive(true);
+        playerAnim.SetBool("isCollecting", false);
+        gameObject.SetActive(false);
     }
 }
