@@ -1,0 +1,14 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: vase
+  m_Controller: {fileID: 9100000, guid: 37a791eff5d685746b2a3f880093fc57, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: c42bf6f2050cf4543ac367ce5a301be4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7c4c1629b0a14c0419aa90b1efd3e0ba, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 226e940acb32d674b84b008be3d49c15, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d4095937d4d7c1546956cdd37500f0f3, type: 2}

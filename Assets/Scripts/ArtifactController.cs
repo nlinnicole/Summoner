@@ -6,7 +6,7 @@ public class ArtifactController : MonoBehaviour
 {
 
     public Animator playerAnim;
-    public Animator bottleAnim;
+    public Animator artifactAnim;
 
     public GameObject panel;
 
@@ -29,12 +29,11 @@ public class ArtifactController : MonoBehaviour
             Debug.Log("Found artifact");
             playerAnim.SetBool("isWalking", false);
             playerAnim.SetBool("isCollecting", true);
-            bottleAnim.SetBool("isTriggered", true);
+            artifactAnim.SetBool("isTriggered", true);
             GameObject.FindWithTag("Player").GetComponent<CharController>().enabled = false;
 
             StartCoroutine(wait());
 
-            GameObject.FindWithTag("Player").GetComponent<CharController>().enabled = true;
         }
     }
 
@@ -42,6 +41,7 @@ public class ArtifactController : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         panel.SetActive(true);
+        GameObject.FindWithTag("Player").GetComponent<CharController>().enabled = true;
         playerAnim.SetBool("isCollecting", false);
         gameObject.SetActive(false);
     }
