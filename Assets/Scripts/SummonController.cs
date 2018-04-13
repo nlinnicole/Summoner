@@ -41,7 +41,7 @@ public class SummonController : MonoBehaviour {
                 summonBridge();
             }
         }
-        else if (Input.GetKeyDown(KeyCode.P))
+        else if (Input.GetKeyDown(KeyCode.U))
         {
             if (closestSpawn.tag == "BigB_Portal")
             {
@@ -66,7 +66,7 @@ public class SummonController : MonoBehaviour {
                 summonStairs(rotation);
             }
         }
-        else if (Input.GetKeyDown(KeyCode.L))
+        else if (Input.GetKeyDown(KeyCode.I))
         {
             int isRotated = 0;
             // Stairs and Raised Portal
